@@ -6,7 +6,7 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:11:53 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/03 12:01:05 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/03 12:54:14 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 #define PROMPT G "🌟::NeoShell~/💎[" ORG "Prompt" RES G "]🗿$\n|~↠$ " RES
 
-
+/*envp linked list*/
 typedef struct s_env
 {
     char *envar;// envp variable name
@@ -33,11 +33,20 @@ typedef struct s_env
     struct s_env *next;
 }               t_envl; //env_list
 
+/*this linked list helps me to free all memory address*/
+typedef  struct s_leak
+{
+    void            *address;
+    struct s_leak   *next;
+}               t_leak;
+
+/*the global struct*/
 typedef struct s_neo
 {
     char    **envp;
     char    *line;
     t_envl  *envl;
+    t_leak  *leaks;
     size_t size;
 } g_neo;
 

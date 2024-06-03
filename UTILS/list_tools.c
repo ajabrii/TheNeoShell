@@ -6,14 +6,16 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:17:51 by ytarhoua          #+#    #+#             */
-/*   Updated: 2024/06/03 11:37:18 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/03 12:57:50 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../HEADERS/neoshell.h"
 #include 	"../HEADERS/utils.h"
 
-void	ft_lstadd_back(t_envl **lst, t_envl *newx)
+g_neo shell;
+
+void ft_lstadd_back(t_envl **lst, t_envl *newx)
 {
 	t_envl	*node;
 
@@ -56,6 +58,9 @@ void	*ft_malloc(size_t size)
 	res = malloc(size + 1);
 	if(!res)
 		return (NULL);
+	//hear when ever i use this malloc i well create an node
+	// that hold the address and free this linked list
+	//the goal is to have the 0 leaks
 	return (res);
 }
 

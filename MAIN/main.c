@@ -6,7 +6,7 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:15:43 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/03 12:03:34 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/03 12:54:32 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void    get_neoenvp(char **env)
 void    neoinit(char **env)
 {
     shell.envl = NULL;
+    shell.leaks = NULL;
     shell.line = NULL;
     get_neoenvp(env);
 }
