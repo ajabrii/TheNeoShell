@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcnmp.c                                       :+:      :+:    :+:   */
+/*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 15:31:30 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/03 11:17:14 by ajabri           ###   ########.fr       */
+/*   Created: 2024/06/03 12:10:32 by ajabri            #+#    #+#             */
+/*   Updated: 2024/06/03 12:17:06 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../HEADERS/utils.h"
+# include "../HEADERS/neoshell.h"
+# include "../HEADERS/utils.h"
 
-int	ft_strncmp(char *s1, char *s2, size_t n)
+/*
+lets say for exmple i have as a prompt 'unset PATH'
+i need to split the prompt by \n to get the the variable name that
+i should unset and basecly use the delone function to remove the node
+*/
+
+//TO DO
+void    ft_unset()
 {
-	size_t	i;
 
-	i = 0;
-	if (n == 0)
-		return (0);
-	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n - 1)
-	{
-		i++;
-	}
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

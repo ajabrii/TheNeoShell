@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   substr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytarhoua <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 10:15:47 by ajabri            #+#    #+#             */
-/*   Updated: 2024/05/13 16:49:23 by ytarhoua         ###   ########.fr       */
+/*   Updated: 2024/06/03 11:17:42 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "../HEADERS/utils.h"
 
 static char	*ft_while(char *ptr, char *st, unsigned int star, size_t lent)
 {

@@ -6,41 +6,11 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 10:29:02 by ajabri            #+#    #+#             */
-/*   Updated: 2024/02/27 15:11:22 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/03 11:17:47 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
-
-// size_t	ft_strlen(char *c)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	if (!c)
-// 		return (0);
-// 	while (c[i])
-// 	{
-// 		i++;
-// 	}
-// 	return (i);
-// }
-
-// char	*ft_strchr(char *s, int c)
-// {
-// 	char	*ptr;
-
-// 	ptr = (char *)s;
-// 	while (*ptr)
-// 	{
-// 		if (*ptr == (char)c)
-// 			return (ptr);
-// 		ptr++;
-// 	}
-// 	if ((char)c == '\0')
-// 		return (ptr);
-// 	return (NULL);
-// }
+#include "../HEADERS/utils.h"
 
 char	*ft_strdup(char *s1)
 {

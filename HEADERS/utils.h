@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytarhoua <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:10:34 by ajabri            #+#    #+#             */
-/*   Updated: 2024/05/12 20:34:32 by ytarhoua         ###   ########.fr       */
+/*   Updated: 2024/06/03 10:53:32 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@
 # define RES "\033[0m"
 
 size_t	ft_strlen(char *str);
-void	ft_error(char *err);
+void    ft_strcpy(char *dst, char *src, char c);
+void    ft_error(char *err);
 long	ft_atol(char *str, int flag);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 char	**ft_split(char *s, char c);

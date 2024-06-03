@@ -6,11 +6,11 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:28:14 by ajabri            #+#    #+#             */
-/*   Updated: 2024/02/27 15:11:31 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/03 11:17:38 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "../HEADERS/utils.h"
 
 static size_t	ft_words(char *s, char c)
 {

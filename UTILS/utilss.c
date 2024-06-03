@@ -6,11 +6,11 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:10:24 by ajabri            #+#    #+#             */
-/*   Updated: 2024/05/20 14:41:36 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/03 11:17:51 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "../HEADERS/utils.h"
 
 size_t	ft_strlen(char *str)
 {
