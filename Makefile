@@ -4,6 +4,7 @@ NAME = minishell
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 #------------------
 SRC = MAIN/main.c
+SRC += LEXICAL/lexical.c
 SRC += BUILTINS/env.c BUILTINS/exit.c
 SRC += UTILS/split.c UTILS/ft_strcnmp.c UTILS/substr.c UTILS/utilss.c UTILS/tools.c
 SRC += UTILS/ft_strcpy.c UTILS/list_tools.c

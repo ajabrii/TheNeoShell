@@ -6,11 +6,12 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 10:15:47 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/03 11:17:42 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/05 11:01:31 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../HEADERS/utils.h"
+#include "../HEADERS/neoshell.h"
 
 static char	*ft_while(char *ptr, char *st, unsigned int star, size_t lent)
 {
@@ -42,7 +43,7 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	if (len > ft_strlen(s) - start)
 		len = ft_strlen(s) - start;
-	str = (char *)malloc((len + 1) * sizeof(char));
+	str = (char *)ft_malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	ft_while(str, s, start, len);

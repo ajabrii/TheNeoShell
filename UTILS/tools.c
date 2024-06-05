@@ -6,11 +6,12 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 10:29:02 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/03 11:17:47 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/05 11:01:21 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../HEADERS/utils.h"
+#include "../HEADERS/neoshell.h"
 
 char	*ft_strdup(char *s1)
 {
@@ -22,7 +23,7 @@ char	*ft_strdup(char *s1)
 		return (NULL);
 	len = ft_strlen(s1);
 	i = 0;
-	str = malloc((len + 1) * sizeof(char));
+	str = ft_malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	while (s1[i])

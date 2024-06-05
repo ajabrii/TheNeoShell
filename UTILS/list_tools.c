@@ -6,14 +6,65 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:17:51 by ytarhoua          #+#    #+#             */
-/*   Updated: 2024/06/03 12:57:50 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/05 09:23:28 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../HEADERS/neoshell.h"
 #include 	"../HEADERS/utils.h"
 
-g_neo shell;
+void	ft_lstadd_backv2(t_leak **lst, t_leak *newx)
+{
+	t_leak	*node;
+
+	if (!lst || !newx)
+		return ;
+	node = ft_lstlastv2(*lst);
+	if (*lst)
+		node->next = newx;
+	else
+		*lst = newx;
+}
+
+void	*ft_malloc(size_t size)
+{
+	void	*res;
+
+	res = malloc(size + 1);
+	if(!res)
+		return (NULL);
+	ft_lstadd_backv2(&shell.leaks, ft_lstnewv2(res));
+	// hear when ever i use this malloc i well create an node
+	//  that hold the address and free this linked list
+	// the goal is to have the 0 leaks
+	return (res);
+}
+
+t_leak	*ft_lstnewv2(void *var)
+{
+	t_leak	*lst;
+
+	lst = (t_leak *)malloc(sizeof(t_leak));
+	if (!lst)
+		return (NULL);
+	lst->address = var;
+	lst->next = NULL;
+	return (lst);
+}
+
+t_leak	*ft_lstlastv2(t_leak *lst)
+{
+	t_leak	*tmp;
+
+	if (!lst)
+		return (0);
+	tmp = lst;
+	while (tmp->next != NULL)
+	{
+		tmp = tmp->next;
+	}
+	return (tmp);
+}
 
 void ft_lstadd_back(t_envl **lst, t_envl *newx)
 {
@@ -28,18 +79,6 @@ void ft_lstadd_back(t_envl **lst, t_envl *newx)
 		*lst = newx;
 }
 
-// void	ft_lstadd_backv2(t_type **lst, t_type *newx)
-// {
-// 	t_type	*node;
-
-// 	if (!lst || !newx)
-// 		return ;
-// 	node = ft_lstlastv2(*lst);
-// 	if (*lst)
-// 		node->next = newx;
-// 	else
-// 		*lst = newx;
-// }
 
 size_t ft_strlenc(char *str, char c)
 {
@@ -51,18 +90,6 @@ size_t ft_strlenc(char *str, char c)
 	return (i);
 }
 
-void	*ft_malloc(size_t size)
-{
-	void	*res;
-
-	res = malloc(size + 1);
-	if(!res)
-		return (NULL);
-	//hear when ever i use this malloc i well create an node
-	// that hold the address and free this linked list
-	//the goal is to have the 0 leaks
-	return (res);
-}
 
 t_envl	*ft_lstnew(char *var)
 {
@@ -81,19 +108,6 @@ t_envl	*ft_lstnew(char *var)
 	return (lst);
 }
 
-// t_type	*ft_lstnewv2(char *var, t_token token, bool flag)
-// {
-// 	t_type	*lst;
-
-// 	lst = (t_type *)malloc(sizeof(t_type));
-// 	if (!lst)
-// 		return (NULL);
-// 	lst->value = ft_strdup(var);
-// 	lst->type = token;
-// 	lst->flag = flag;
-// 	lst->next = NULL;
-// 	return (lst);
-// }
 
 t_envl	*ft_lstlast(t_envl *lst)
 {
@@ -109,19 +123,6 @@ t_envl	*ft_lstlast(t_envl *lst)
 	return (tmp);
 }
 
-// t_type	*ft_lstlastv2(t_type *lst)
-// {
-// 	t_type	*tmp;
-
-// 	if (!lst)
-// 		return (0);
-// 	tmp = lst;
-// 	while (tmp->next != NULL)
-// 	{
-// 		tmp = tmp->next;
-// 	}
-// 	return (tmp);
-// }
 
 int	ft_strchr(const char *s, int c)
 {

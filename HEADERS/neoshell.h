@@ -6,7 +6,7 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:11:53 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/03 12:54:14 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/05 10:54:23 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,29 @@
 #include <readline/history.h>
 
 #define PROMPT G "🌟::NeoShell~/💎[" ORG "Prompt" RES G "]🗿$\n|~↠$ " RES
+
+/*lexical*/
+typedef enum s_token
+{
+    WR,
+    OPTION,
+    REDIRECTION,
+    INPUT,
+    PIPE,
+    WSP, //white spaces
+    HERE_DOC,
+    APPEND,
+    AND,
+    OR,
+}          t_token;
+
+/*THE LEAXICAL LINKED LIST*/
+typedef struct s_lexical
+{
+    char *value;
+    t_token token;
+    struct s_lexical *next;
+}   t_block;
 
 /*envp linked list*/
 typedef struct s_env
@@ -47,13 +70,26 @@ typedef struct s_neo
     char    *line;
     t_envl  *envl;
     t_leak  *leaks;
+    t_block *block;
+    char    **sub;// this for tokenization
     size_t size;
 } g_neo;
+
+extern g_neo shell;
 
 t_envl *ft_lstlast(t_envl *lst);
 t_envl *ft_lstnew(char *var);
 void    ft_lstadd_back(t_envl **lst, t_envl *newx);
 void    ft_strcpy(char *dst, char *src, char c);
-void    ft_env();
+void    ft_env(t_envl *env);
 void    ft_exit(int x);
+
+t_leak *ft_lstlastv2(t_leak *lst);
+t_leak *ft_lstnewv2(void *var);
+void ft_lstadd_backv2(t_leak **lst, t_leak *newx);
+void ft_free_leaks();
+
+void give_token();
+void ft_lexical();
+void *ft_malloc(size_t size);
 #endif
