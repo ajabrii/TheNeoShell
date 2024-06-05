@@ -6,7 +6,7 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:16:25 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/05 14:09:14 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/05 14:45:49 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool check_spcial(char c)
         return (false);
     if (c >= '0' &&  c <= '9')
         return (false);
-    if (c == 45)
+    if (c == 45 || c == '.' || c == '/')
         return (false);
     return (true);
 }
@@ -200,6 +200,10 @@ t_token set_token(int i)
         return (WSP);
     else if (!ft_strncmp(shell.sub[i], "|", ft_strlen(shell.sub[i])))
         return (PIPE);
+    else if (!ft_strncmp(shell.sub[i], "(", ft_strlen(shell.sub[i])))
+        return (L_PAR);
+    else if (!ft_strncmp(shell.sub[i], ")", ft_strlen(shell.sub[i])))
+        return (R_PAR);
     else
     {
         if (shell.sub[i][0] == '-')

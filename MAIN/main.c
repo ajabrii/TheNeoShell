@@ -6,7 +6,7 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:15:43 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/05 11:19:14 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/05 14:50:00 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ void       read_prompt()
         shell.line = readline(PROMPT);
         if (shell.line)
             add_history(shell.line);
+        if (!ft_strncmp(shell.line, "env", 4))
+            ft_env(shell.envl);
         if (!ft_strncmp(shell.line, "exit", 5))
             ft_exit(0);
         ft_lexical();
         give_token();
         ft_printf_out();
-        // if (!ft_strncmp(shell.line, "env", 4))
-        //     ft_env(shell.envl);
         free(shell.line);
     }
 }
