@@ -6,7 +6,7 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:16:25 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/05 11:18:14 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/05 14:09:14 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,28 @@ void ft_coutquotes()
 
 }
 
+bool is_quotition(char i)
+{
+    if (i == 34)
+        return (true);
+    if (i == 39)
+        return (true);
+    else
+        return (false);
+}
+
+
+int count_inside_quotes(int i, char q)
+{
+    i++;
+    while (shell.line[i] && shell.line[i] != q)
+    {
+        i++;
+    }
+    if (shell.line[i] == q)
+        i++;
+    return i; // Return the index of the ending quote character
+}
 void ft_lexical()
 {
     int i;
@@ -115,7 +137,16 @@ void ft_lexical()
     while (shell.line[i])
     {
 
-        if (check_spcial(shell.line[i]))
+        if (is_quotition(shell.line[i]))
+        {
+            start = i;
+            len = count_inside_quotes(i, shell.line[i]);
+            printf("[%d]\n", len);
+            shell.sub[ntoken] = ft_substr(shell.line, start, len - start);
+            ntoken++;
+            i = len;
+        }
+        else if (check_spcial(shell.line[i]))
         {
             if (is_whitespaces(shell.line[i]))
             {
