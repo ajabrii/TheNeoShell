@@ -6,7 +6,7 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:11:53 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/05 15:30:06 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/05 15:49:04 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef enum s_token
     OR,
     L_PAR, // (
     R_PAR,// )
+    STAR,
 }          t_token;
 
 /*THE LEAXICAL LINKED LIST*/

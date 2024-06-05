@@ -6,7 +6,7 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:16:25 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/05 15:40:13 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/05 15:49:43 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,10 +187,8 @@ t_token set_token(int i)
         return (APPEND);
     else if (!ft_strncmp(shell.sub[i], "<<", ft_strlen(shell.sub[i])))
         return (HERE_DOC);
-    // else if (!ft_strncmp(shell.sub[i], "\"", ft_strlen(shell.sub[i])))
-    //     return (DQ);
-    // else if (!ft_strncmp(shell.sub[i], "'", ft_strlen(shell.sub[i])))
-    //     return (SQ);
+    else if (!ft_strncmp(shell.sub[i], "*", ft_strlen(shell.sub[i])))
+        return (STAR);
     else if (!ft_strncmp(shell.sub[i], "&&", ft_strlen(shell.sub[i])))
         return (AND);
     else if (!ft_strncmp(shell.sub[i], "||", ft_strlen(shell.sub[i])))
@@ -273,9 +271,9 @@ void    give_token()
         ft_lstadd_backv3(&head, ft_lstnewv3(shell.sub[i], set_token(i)));
         i++;
     }
-    // while (head)
-    // {
-    //     printf("node[%s][%d]\n", head->value, head->token);
-    //     head = head->next;
-    // }
+    while (head)
+    {
+        printf("node[%s][%d]\n", head->value, head->token);
+        head = head->next;
+    }
 }

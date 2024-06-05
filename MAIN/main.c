@@ -6,7 +6,7 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:15:43 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/05 15:45:57 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/05 15:48:14 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,6 @@ void    neoinit(char **env)
     shell.line = NULL;
     get_neoenvp(env);
 }
-
-void    ft_printf_out()
-{
-    t_block *save;
-
-    save = shell.block;
-    while (shell.block)
-    {
-        printf("node[%s][%d]\n", shell.block->value, shell.block->token);
-        shell.block = shell.block->next;
-    }
-    shell.block = save;
-}
-
 
 /*    <syntax>    */
 // i just started the syntax error
@@ -90,7 +76,6 @@ void       read_prompt()
         ft_syntax();
         ft_lexical();
         give_token();
-        // ft_printf_out();
         free(shell.line);
     }
 }
