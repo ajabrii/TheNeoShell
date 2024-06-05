@@ -6,7 +6,7 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:16:25 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/05 14:45:49 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/05 15:40:13 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool check_spcial(char c)
         return (false);
     if (c >= '0' &&  c <= '9')
         return (false);
-    if (c == 45 || c == '.' || c == '/')
+    if (c == 45 || c == '.' || c == '/' || c == '$')
         return (false);
     return (true);
 }
@@ -141,7 +141,6 @@ void ft_lexical()
         {
             start = i;
             len = count_inside_quotes(i, shell.line[i]);
-            printf("[%d]\n", len);
             shell.sub[ntoken] = ft_substr(shell.line, start, len - start);
             ntoken++;
             i = len;
@@ -274,9 +273,9 @@ void    give_token()
         ft_lstadd_backv3(&head, ft_lstnewv3(shell.sub[i], set_token(i)));
         i++;
     }
-    while (head)
-    {
-        printf("node[%s][%d]\n", head->value, head->token);
-        head = head->next;
-    }
+    // while (head)
+    // {
+    //     printf("node[%s][%d]\n", head->value, head->token);
+    //     head = head->next;
+    // }
 }

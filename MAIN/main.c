@@ -6,7 +6,7 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:15:43 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/05 14:50:00 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/05 15:45:57 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,31 @@ void    ft_printf_out()
     }
     shell.block = save;
 }
+
+
+/*    <syntax>    */
+// i just started the syntax error
+bool check_char(int i)
+{
+    if (shell.line[i] == '|' || shell.line[i] == ';'  || shell.line[i] == '\\')
+        return (true);
+    if (!ft_strncmp(&shell.line[i], "&&", 2) || !ft_strncmp(&shell.line[i], "||", 2))
+        return (true);
+    return (false);
+}
+void ft_syntax()
+{
+    int i;
+    i = 0;
+    while (shell.line[i])
+    {
+        if ((i == 0 || i == (int)ft_strlen(shell.line) - 1) && (check_char(i)))
+            printf("neoshell: syntax error near unexpected token `%c'\n",shell.line[i]);
+        i++;
+    }
+}
+/*    <\syntax>    */
+
 void       read_prompt()
 {
     // int pid;
@@ -62,9 +87,10 @@ void       read_prompt()
             ft_env(shell.envl);
         if (!ft_strncmp(shell.line, "exit", 5))
             ft_exit(0);
+        ft_syntax();
         ft_lexical();
         give_token();
-        ft_printf_out();
+        // ft_printf_out();
         free(shell.line);
     }
 }
