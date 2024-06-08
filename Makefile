@@ -1,9 +1,10 @@
 CC = cc
 NAME = minishell
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g3
 #------------------
 SRC = MAIN/main.c
+SRC += EXPAND/expander.c
 SRC += LEXICAL/lexical.c
 SRC += BUILTINS/env.c BUILTINS/exit.c
 SRC += UTILS/split.c UTILS/ft_strcnmp.c UTILS/substr.c UTILS/utilss.c UTILS/tools.c

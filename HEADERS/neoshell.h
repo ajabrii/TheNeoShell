@@ -6,7 +6,7 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:11:53 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/05 15:49:04 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/08 11:37:48 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,6 @@ void give_token();
 void ft_lexical();
 void *ft_malloc(size_t size);
 void ft_throwerr(char *err, int flag);
+//EXPAND
+void    expander();
 #endif

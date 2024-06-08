@@ -6,7 +6,7 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:15:43 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/05 15:48:14 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/08 16:23:21 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,12 @@ bool check_char(int i)
 {
     if (shell.line[i] == '|' || shell.line[i] == ';'  || shell.line[i] == '\\')
         return (true);
-    if (!ft_strncmp(&shell.line[i], "&&", 2) || !ft_strncmp(&shell.line[i], "||", 2))
+    if (!ft_strncmp(&shell.line[i], "&&", 3) || !ft_strncmp(&shell.line[i], "||", 3))
         return (true);
+
     return (false);
 }
+
 void ft_syntax()
 {
     int i;
@@ -63,7 +65,6 @@ void ft_syntax()
 
 void       read_prompt()
 {
-    // int pid;
     while (1)
     {
         shell.line = readline(PROMPT);
@@ -72,7 +73,11 @@ void       read_prompt()
         if (!ft_strncmp(shell.line, "env", 4))
             ft_env(shell.envl);
         if (!ft_strncmp(shell.line, "exit", 5))
+        {
+            free(shell.line);
+            read(-1,NULL,0);
             ft_exit(0);
+        }
         ft_syntax();
         ft_lexical();
         give_token();

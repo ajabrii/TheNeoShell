@@ -6,7 +6,7 @@
 /*   By: ajabri <ajabri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:16:25 by ajabri            #+#    #+#             */
-/*   Updated: 2024/06/05 15:49:43 by ajabri           ###   ########.fr       */
+/*   Updated: 2024/06/08 16:32:52 by ajabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -271,6 +271,8 @@ void    give_token()
         ft_lstadd_backv3(&head, ft_lstnewv3(shell.sub[i], set_token(i)));
         i++;
     }
+    shell.block = head;
+    expander();
     while (head)
     {
         printf("node[%s][%d]\n", head->value, head->token);
